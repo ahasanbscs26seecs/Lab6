@@ -1,4 +1,4 @@
-STORAGE ESTIMATOR - Main version
+STORAGE ESTIMATOR - Features version
 
 
 
