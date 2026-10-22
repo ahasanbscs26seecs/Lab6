@@ -1,0 +1,32 @@
+import os
+from pathlib import Path
+
+def estimate_storage(path_str):
+    """
+    Calculates the total size of a file or directory and converts it
+    into a human-readable format (KB, MB, GB).
+    """
+    target_path = Path(path_str)
+    
+    if not target_path.exists():
+        return f"Error: The path '{path_str}' does not exist."
+        
+    # Calculate raw bytes
+    if target_path.is_file():
+        total_bytes = target_path.stat().st_size
+    else:
+        # Sum up size of all files in the directory recursively
+        total_bytes = sum(f.stat().st_size for f in target_path.rglob('*') if f.is_file())
+        
+    # Convert bytes to human-readable units
+    for unit in ['Bytes', 'KB', 'MB', 'GB', 'TB']:
+        if total_bytes < 1024.0:
+            return f"Estimated Storage: {total_bytes:.2f} {unit}"
+        total_bytes /= 1024.0
+        
+    return f"Estimated Storage: {total_bytes:.2f} PB"
+
+# Example Usage:
+# Current working directory storage estimation
+print(estimate_storage('.')) 
+print("Program Execution Successful!"
