@@ -1,4 +1,4 @@
-STORAGE ESTIMATOR
+STORAGE ESTIMATOR - Main version
 
 
 
@@ -29,8 +29,4 @@ Created by Asad Hasan Alvi
 622378
 
 BSCS16E
-
-
-
-
 
